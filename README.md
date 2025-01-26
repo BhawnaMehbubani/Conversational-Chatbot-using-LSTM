@@ -57,9 +57,7 @@ The chatbot uses the **Chatterbot Kaggle English Dataset**. It contains question
 
 
 
-## Pipeline Architecture Workflow
-
-Here’s the detailed pipeline architecture, represented using **pipe symbols**:
+## Project Architecture 
 
 ```plaintext
 Data Collection
@@ -126,6 +124,29 @@ Chatbot Interaction
 - Generate conversational answers
 ```
 
+## Detailed Steps and Algorithms Used
+
+### 1. Data Extraction and Preprocessing:
+- **Algorithm:** Python string operations, TensorFlow’s tokenizer API.
+- **Goal:** Clean, tokenize, and pad the dataset for the Seq2Seq model.
+
+### 2. Model Definition:
+- **Encoder-Decoder Architecture:**  
+  - Encoder compresses input sequences into a context vector (`h` and `c` state).
+  - Decoder generates output sequences using context and previous outputs.
+- **Algorithm:** LSTM layers with Keras Functional API.
+- **Reason:** Seq2Seq models excel at sequence-based tasks.
+
+### 3. Training:
+- **Algorithm:** RMSprop optimizer + categorical cross-entropy loss.
+- **Details:** 150 epochs with validation split for training accuracy (~96%).
+
+### 4. Inference Models:
+- **Encoder Inference Model:** Generates the context vector.
+- **Decoder Inference Model:** Produces response sequences token by token.
+
+
+## Step by step workflow
 ```
 Data Collection
     |
@@ -229,8 +250,8 @@ Inference Models
     v                                                           v
 +----------------------------+             +----------------------------+
 | Encoder Inference Model    |             | Decoder Inference Model    |
-| - Input: Question (tokens) |             | - Input: Context vectors,   |
-| - Output: State vectors (h,c)|             |   Decoder input token      |
+| - Input: Question (tokens) |             | - Input: Context vectors,  |
+| - Output: State vectors (h,c)|           |   Decoder input token      |
 +----------------------------+             | - Output: Predicted tokens |
     |                                         +----------------------------+
     v
@@ -238,8 +259,8 @@ Generate Response Iteratively
     |
     v
 +----------------------------------------------------+
-| - Convert Question to Tokens                     |
-| - Predict Encoder Output (State vectors)         |
+| - Convert Question to Tokens                      |
+| - Predict Encoder Output (State vectors)          |
 | - Use state vectors to feed Decoder model for the |
 |   next token prediction                           |
 | - Repeat until end of answer or max length is hit |
@@ -252,32 +273,9 @@ Display Final Response
 +----------------------------+
 | Return final chatbot response|
 +----------------------------+
-    |
-    v
-End of Interaction
+ 
 
 ```
-
-## Detailed Steps and Algorithms Used
-
-### 1. Data Extraction and Preprocessing:
-- **Algorithm:** Python string operations, TensorFlow’s tokenizer API.
-- **Goal:** Clean, tokenize, and pad the dataset for the Seq2Seq model.
-
-### 2. Model Definition:
-- **Encoder-Decoder Architecture:**  
-  - Encoder compresses input sequences into a context vector (`h` and `c` state).
-  - Decoder generates output sequences using context and previous outputs.
-- **Algorithm:** LSTM layers with Keras Functional API.
-- **Reason:** Seq2Seq models excel at sequence-based tasks.
-
-### 3. Training:
-- **Algorithm:** RMSprop optimizer + categorical cross-entropy loss.
-- **Details:** 150 epochs with validation split for training accuracy (~96%).
-
-### 4. Inference Models:
-- **Encoder Inference Model:** Generates the context vector.
-- **Decoder Inference Model:** Produces response sequences token by token.
 
 
 
