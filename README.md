@@ -338,3 +338,8 @@ Display Final Response
 
 
 
+## Contributions  
+
+Contributions, suggestions, and feature requests are welcome! Feel free to open an issue or submit a pull request. 
+
+
