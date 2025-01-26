@@ -194,11 +194,11 @@ Seq2Seq Model Definition
     |                                                     |
     v                                                     v
 +----------------------------+             +---------------------------+
-| Encoder Model              |             | Decoder Model             |
+| Encoder Model              |             | Decoder Model              |
 | - Input: encoder_input_data|             | - Input: decoder_input_data|
-| - Embedding Layer          |             | - Embedding Layer         |
-| - LSTM Layer (State vectors) |             | - LSTM Layer (with states)|
-| - Dense Layer (Context)    |             | - Dense Layer (Output)    |
+| - Embedding Layer          |             | - Embedding Layer          |
+| - LSTM Layer (State vectors)|           | - LSTM Layer (with states) |
+| - Dense Layer (Context)    |             | - Dense Layer (Output)     |
 | - Output: Context Vectors  |             | - Output: Predicted Sequences|
 +----------------------------+             +---------------------------+
     |
@@ -229,8 +229,8 @@ Epoch-wise Training
     v
 +---------------------------------------------------+
 | Train for 150 epochs (or tune as per requirement) |
-| - Model weights are updated using backpropagation  |
-| - Training loss and accuracy are logged            |
+| - Model weights are updated using backpropagation |
+| - Training loss and accuracy are logged           |
 +---------------------------------------------------+
     |
     v
@@ -239,7 +239,7 @@ Model Evaluation
     v
 +------------------------------+
 | Evaluate model using validation|
-| data to check accuracy        |
+| data to check accuracy         |
 +------------------------------+
     |
     v
