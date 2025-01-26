@@ -10,7 +10,8 @@
 7. [Data Insights](#data-insights)  
 8. [How to Run the Project](#how-to-run-the-project)  
 9. [Results](#results)  
-10. [Future Work and Improvements](#future-work-and-improvements)  
+10. [Future Work and Improvements](#future-work-and-improvements)
+11. [Contributions](#contributions) 
 
 
 
