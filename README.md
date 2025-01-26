@@ -164,10 +164,10 @@ Data Preprocessing
     |                                                     |
     v                                                     v
 Text Cleaning and Tokenization                          Handle Unwanted Data
-- Remove unwanted characters (punctuation, special chars)   |
-- Convert all text to lowercase                          |
+- Remove unwanted characters (punctuation, special chars) |
+- Convert all text to lowercase                           |
 - Remove stop words and short words (optional)            |
-- Apply lemmatization or stemming (optional)             |
+- Apply lemmatization or stemming (optional)              |
     |                                                     v
     v                                              Data Formatting
 +----------------------------------------+         - Format data for padding
